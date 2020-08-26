@@ -15,12 +15,13 @@ namespace SodexoAssignment
             // get text in file
             string text = System.IO.File.ReadAllText(filesPath + "SameInReverse.sdx");
 
-            if (!string.IsNullOrEmpty(text))
+            if (!string.IsNullOrEmpty(text)) // null or empty check
             {
-                using (System.IO.StreamWriter file = new System.IO.StreamWriter(filesPath + "SameInReverseFound.sdx"))
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(filesPath + "SameInReverseFound.sdx")) // create new file 
                 {
                     // write text in file
-                    file.Write(GetMaxCharacterSetReverse(text));
+                    string foundMaxCharacterSet = GetMaxCharacterSetReverse(text);
+                    file.Write(foundMaxCharacterSet);
                 }
             }
         }
@@ -35,7 +36,7 @@ namespace SodexoAssignment
             {
                 if (i != 0 && i != text.Length - 1)
                 {
-                    if (text[i + 1] == text[i])
+                    if (text[i + 1] == text[i]) // for example aa
                     {
                         k = 1;
                         found.Append(text[i] + "" + text[i + 1]);
@@ -47,7 +48,7 @@ namespace SodexoAssignment
                             found.Append(text[i + k + 1]);
                             k++;
                         }
-                        if (found.Length > maxCharacterFound.Length)
+                        if (found.Length > maxCharacterFound.Length) // check found character set is max character set
                         {
                             maxCharacterFound.Clear();
                             maxCharacterFound.Append(found.ToString());
@@ -56,7 +57,7 @@ namespace SodexoAssignment
 
                     }
 
-                    if (text[i + 1] == text[i - 1])
+                    if (text[i + 1] == text[i - 1]) // for example aba
                     {
                         k = 1;
                         found.Append(text[i]);
@@ -66,11 +67,13 @@ namespace SodexoAssignment
                             found.Append(text[i + k]);
                             k++;
                         }
-                        if (found.Length > maxCharacterFound.Length)
+
+                        if (found.Length > maxCharacterFound.Length) // check found character set is max character set
                         {
                             maxCharacterFound.Clear();
                             maxCharacterFound.Append(found.ToString());
                         }
+
                         found.Clear();
                     }
 
