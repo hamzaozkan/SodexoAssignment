@@ -25,7 +25,7 @@ namespace SodexoAssignment
                         {
                             SetFound(text[i - k], ref found, ref k); // set baab
                         }
-                        SetMaxCharacterFound(ref found, ref maxCharacterFound);
+                        SetMaxCharacterFound(ref found, ref maxCharacterFound); // set max character set
 
                     }
 
@@ -38,7 +38,7 @@ namespace SodexoAssignment
                             SetFound(text[i - k], ref found, ref k); // set bab
                         }
 
-                        SetMaxCharacterFound(ref found, ref maxCharacterFound);
+                        SetMaxCharacterFound(ref found, ref maxCharacterFound); // set max character set
                     }
 
                 }
