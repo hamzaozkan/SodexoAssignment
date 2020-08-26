@@ -11,18 +11,17 @@ namespace SodexoAssignment
     {
         static void Main(string[] args)
         {
-            IService service = new Service();
-            // set file path
-            string filesPath = "C:\\Users\\Hamza\\source\\repos\\SodexoAssignment\\SodexoAssignment\\Files\\";
+            IService service = new Service(); // create Service instance
+            
+            string filesPath = "C:\\Users\\Hamza\\source\\repos\\SodexoAssignment\\SodexoAssignment\\Files\\";// set file path
 
-            // get text in file
-            string text = File.ReadAllText(filesPath + "SameInReverse.sdx");
+            string text = File.ReadAllText(filesPath + "SameInReverse.sdx");// get text in file
 
             if (!string.IsNullOrEmpty(text)) // null or empty check
             {
                 string foundMaxCharacterSet = service.GetMaxCharacterSet(text); // call service method
 
-                using (StreamWriter file = new StreamWriter(filesPath + "SameInReverseFound.sdx")) // create new file 
+                using (StreamWriter file = new StreamWriter(filesPath + "SameInReverseFound.sdx")) // create new file or open exist file
                 {  
                     file.Write(foundMaxCharacterSet);// write text in file
                 }

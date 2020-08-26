@@ -20,22 +20,22 @@ namespace SodexoAssignment
                     if (text[i + 1] == text[i]) // for example baab
                     {
                         k = 1;
-                        found.Append(text[i] + "" + text[i + 1]); // aa
+                        found.Append(text[i] + "" + text[i + 1]); // set aa
                         while (text[i - k] == text[i + k + 1])
                         {
-                            SetFound(text[i - k], ref found, ref k);
+                            SetFound(text[i - k], ref found, ref k); // set baab
                         }
                         SetMaxCharacterFound(ref found, ref maxCharacterFound);
 
                     }
 
-                    if (text[i + 1] == text[i - 1]) // for example aba
+                    if (text[i + 1] == text[i - 1]) // for example bab
                     {
                         k = 1;
-                        found.Append(text[i]); // b
+                        found.Append(text[i]); // set a
                         while (text[i - k] == text[i + k])
                         {
-                            SetFound(text[i - k],ref found, ref k);
+                            SetFound(text[i - k], ref found, ref k); // set bab
                         }
 
                         SetMaxCharacterFound(ref found, ref maxCharacterFound);
@@ -58,10 +58,10 @@ namespace SodexoAssignment
             found.Clear();
         }
 
-        public void SetFound(char f, ref StringBuilder found, ref int k)
+        public void SetFound(char fChar, ref StringBuilder found, ref int k)
         {
-            found.Insert(0, f);// ab
-            found.Append(f); // aba
+            found.Insert(0, fChar); // ab
+            found.Append(fChar); // aba
             k++;
         }
     }
