@@ -15,7 +15,7 @@ namespace SodexoAssignment
             int k = 1;
             for (int i = 0; i < text.Length; i++)
             {
-                if (i != 0 && i != text.Length - 1)
+                if (i != 0 && i != text.Length - 1) // for index out of range
                 {
                     if (text[i + 1] == text[i]) // for example baab
                     {
